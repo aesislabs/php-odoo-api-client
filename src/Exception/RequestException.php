@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\Exception;
+namespace Aesislabs\Component\Odoo\Exception;
 
 class RequestException extends \RuntimeException implements ExceptionInterface
 {

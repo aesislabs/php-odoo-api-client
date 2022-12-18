@@ -1,13 +1,13 @@
 <?php
 
-namespace Ang3\Component\Odoo\Tests\Expression;
+namespace Aesislabs\Component\Odoo\Tests\Expression;
 
-use Ang3\Component\Odoo\DBAL\Expression\CompositeDomain;
-use Ang3\Component\Odoo\DBAL\Expression\DomainInterface;
+use Aesislabs\Component\Odoo\DBAL\Expression\CompositeDomain;
+use Aesislabs\Component\Odoo\DBAL\Expression\DomainInterface;
 use ReflectionException;
 
 /**
- * @coversDefaultClass \Ang3\Component\Odoo\DBAL\Expression\CompositeDomain
+ * @coversDefaultClass \Aesislabs\Component\Odoo\DBAL\Expression\CompositeDomain
  */
 class CompositeDomainTest extends AbstractDomainTest
 {

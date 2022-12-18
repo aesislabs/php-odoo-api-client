@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\Tests\Utils;
+namespace Aesislabs\Component\Odoo\Tests\Utils;
 
 use PHPUnit\Framework\TestCase;
 

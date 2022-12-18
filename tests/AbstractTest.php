@@ -1,9 +1,9 @@
 <?php
 
-namespace Ang3\Component\Odoo\Tests;
+namespace Aesislabs\Component\Odoo\Tests;
 
-use Ang3\Component\Odoo\Tests\Utils\ObjectTester;
-use Ang3\Component\Odoo\Tests\Utils\Reflector;
+use Aesislabs\Component\Odoo\Tests\Utils\ObjectTester;
+use Aesislabs\Component\Odoo\Tests\Utils\Reflector;
 use PHPUnit\Framework\TestCase;
 use ReflectionException;
 

@@ -7,16 +7,16 @@
     "content-hash": "ef94f9d73d8ebc31e59c5fa20520da9c",
     "packages": [
         {
-            "name": "ang3/php-xmlrpc-client",
+            "name": "aesislabs/php-xmlrpc-client",
             "version": "v1.0.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Ang3/php-xmlrpc-client.git",
+                "url": "https://github.com/Aesislabs/php-xmlrpc-client.git",
                 "reference": "c51c06ac2293977e21ce0be546891a5431284d1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ang3/php-xmlrpc-client/zipball/c51c06ac2293977e21ce0be546891a5431284d1a",
+                "url": "https://api.github.com/repos/Aesislabs/php-xmlrpc-client/zipball/c51c06ac2293977e21ce0be546891a5431284d1a",
                 "reference": "c51c06ac2293977e21ce0be546891a5431284d1a",
                 "shasum": ""
             },
@@ -31,7 +31,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Ang3\\Component\\XmlRpc\\": "src/"
+                    "Aesislabs\\Component\\XmlRpc\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -41,7 +41,7 @@
             "authors": [
                 {
                     "name": "Joanis Rouanet",
-                    "email": "joanis.ang3@gmail.com"
+                    "email": "joanis.aesislabs@gmail.com"
                 }
             ],
             "description": "PHP XML-RPC client",
@@ -53,8 +53,8 @@
                 "xmlrpc"
             ],
             "support": {
-                "issues": "https://github.com/Ang3/php-xmlrpc-client/issues",
-                "source": "https://github.com/Ang3/php-xmlrpc-client/tree/v1.0.3"
+                "issues": "https://github.com/Aesislabs/php-xmlrpc-client/issues",
+                "source": "https://github.com/Aesislabs/php-xmlrpc-client/tree/v1.0.3"
             },
             "time": "2021-12-13T18:06:52+00:00"
         },

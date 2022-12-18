@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Schema;
+namespace Aesislabs\Component\Odoo\DBAL\Schema;
 
 class Field
 {

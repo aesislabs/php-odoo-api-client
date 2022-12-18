@@ -11,7 +11,7 @@ Client
 
 - Marked all ORM built-in methods as deprecated
   - **Use the record manager instead.**
-- Fix [Issue 8](https://github.com/Ang3/php-odoo-api-client/issues/8)
+- Fix [Issue 8](https://github.com/Aesislabs/php-odoo-api-client/issues/8)
   - Fixed method ```count()``` without criteria.
   - Added deprecated shortcut method ```countAll()```.
 

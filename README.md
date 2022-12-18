@@ -1,18 +1,18 @@
 PHP Odoo API client
 ===================
 
-[![Build Status](https://travis-ci.org/Ang3/php-odoo-api-client.svg?branch=master)](https://travis-ci.org/Ang3/php-odoo-api-client) 
-[![Latest Stable Version](https://poser.pugx.org/ang3/php-odoo-api-client/v/stable)](https://packagist.org/packages/ang3/php-odoo-api-client) 
-[![Latest Unstable Version](https://poser.pugx.org/ang3/php-odoo-api-client/v/unstable)](https://packagist.org/packages/ang3/php-odoo-api-client) 
-[![Total Downloads](https://poser.pugx.org/ang3/php-odoo-api-client/downloads)](https://packagist.org/packages/ang3/php-odoo-api-client)
+[![Build Status](https://travis-ci.org/Aesislabs/php-odoo-api-client.svg?branch=master)](https://travis-ci.org/Aesislabs/php-odoo-api-client) 
+[![Latest Stable Version](https://poser.pugx.org/aesislabs/php-odoo-api-client/v/stable)](https://packagist.org/packages/aesislabs/php-odoo-api-client) 
+[![Latest Unstable Version](https://poser.pugx.org/aesislabs/php-odoo-api-client/v/unstable)](https://packagist.org/packages/aesislabs/php-odoo-api-client) 
+[![Total Downloads](https://poser.pugx.org/aesislabs/php-odoo-api-client/downloads)](https://packagist.org/packages/aesislabs/php-odoo-api-client)
 
 Odoo API client using 
 [XML-RPC Odoo ORM External API](https://www.odoo.com/documentation/12.0/webservices/odoo.html). It allows 
 you call your odoo instance and manage records easily.
 
 **You are reading the documentation of version ```7.0```, if your version is older, please read
-[this documentation (6.1.3)](https://github.com/Ang3/php-odoo-api-client/tree/v6.1.3).** 
-Please see the file [UPGRADE-7.0.md](https://github.com/Ang3/php-odoo-api-client/blob/7.0/UPGRADE-7.0.md) 
+[this documentation (6.1.3)](https://github.com/Aesislabs/php-odoo-api-client/tree/v6.1.3).** 
+Please see the file [UPGRADE-7.0.md](https://github.com/Aesislabs/php-odoo-api-client/blob/7.0/UPGRADE-7.0.md) 
 to upgrade your version easily.
 
 **Main features**
@@ -28,7 +28,7 @@ to upgrade your version easily.
 **Good to know**
 
 If you are in Symfony application you should be interested in the bundle 
-[ang3/odoo-bundle](https://github.com/Ang3/odoo-bundle) (client integration).
+[aesislabs/odoo-bundle](https://github.com/Aesislabs/odoo-bundle) (client integration).
 
 Requirements
 ============
@@ -49,7 +49,7 @@ Open a command console, enter your project directory and execute the
 following command to download the latest stable version of the client:
 
 ```console
-$ composer require ang3/php-odoo-api-client
+$ composer require aesislabs/php-odoo-api-client
 ```
 
 This command requires you to have Composer installed globally, as explained
@@ -66,7 +66,7 @@ First, you have to create a client instance:
 
 require_once 'vendor/autoload.php';
 
-use Ang3\Component\Odoo\Client;
+use Aesislabs\Component\Odoo\Client;
 
 // Option 1: by calling the constructor...
 $client = new Client('<host>', '<database>', '<username>', '<password>', $logger = null);
@@ -81,7 +81,7 @@ $client = Client::createFromConfig([
 ```
 
 Exceptions:
-- ```Ang3\Component\Odoo\Exception\MissingConfigParameterException``` when a required parameter is missing 
+- ```Aesislabs\Component\Odoo\Exception\MissingConfigParameterException``` when a required parameter is missing 
 from the static method ```createFromConfig()```.
 
 Then, make your call:
@@ -91,8 +91,8 @@ $result = $client->call($name, $method, $parameters = [], $options = []);
 ```
 
 Exceptions:
-- ```Ang3\Component\Odoo\Exception\AuthenticationException``` when authentication failed.
-- ```Ang3\Component\Odoo\Exception\RequestException``` when request failed.
+- ```Aesislabs\Component\Odoo\Exception\AuthenticationException``` when authentication failed.
+- ```Aesislabs\Component\Odoo\Exception\RequestException``` when request failed.
 
 These previous exception can be thrown by all methods of the client.
 
@@ -103,7 +103,7 @@ First of all, Odoo is a database. Each "model" is a table and has its own fields
 
 > DBAL features was added in version ```7.0``` - If your version is older, please use the built-in 
 ORM methods of the client like explained in the 
-> [dedicated documentation](https://github.com/Ang3/php-odoo-api-client/tree/v6.1.3):
+> [dedicated documentation](https://github.com/Aesislabs/php-odoo-api-client/tree/v6.1.3):
 be aware that these client ORM methods are deprecated since version ```7.0```.
 
 Record manager
@@ -120,9 +120,9 @@ $recordManager = $client->getRecordManager();
 You can also create your own with a client instance:
 
 ```php
-use Ang3\Component\Odoo\DBAL\RecordManager;
+use Aesislabs\Component\Odoo\DBAL\RecordManager;
 
-/** @var \Ang3\Component\Odoo\Client $myClient */
+/** @var \Aesislabs\Component\Odoo\Client $myClient */
 $recordManager = new RecordManager($myClient);
 ```
 
@@ -131,7 +131,7 @@ $recordManager = new RecordManager($myClient);
 Here is all built-in ORM methods provided by the record manager:
 
 ```php
-use Ang3\Component\Odoo\DBAL\Expression\DomainInterface;
+use Aesislabs\Component\Odoo\DBAL\Expression\DomainInterface;
 
 /**
  * Create a new record.
@@ -235,7 +235,7 @@ You can get the schema of your Odoo database by calling the getter method
 ```RecordManager::getSchema()```:
 
 ```php
-/** @var \Ang3\Component\Odoo\DBAL\Schema\Schema $schema */
+/** @var \Aesislabs\Component\Odoo\DBAL\Schema\Schema $schema */
 $schema = $recordManager->getSchema();
 ```
 
@@ -251,11 +251,11 @@ $modelNames = $schema->getModelNames();
 ### Get model metadata
 
 ```php
-/** @var \Ang3\Component\Odoo\DBAL\Schema\Model $model */
+/** @var \Aesislabs\Component\Odoo\DBAL\Schema\Model $model */
 $model = $schema->getModel('res.company');
 ```
 
-An exception of type ```Ang3\Component\Odoo\DBAL\Schema\SchemaException``` is thrown if the model
+An exception of type ```Aesislabs\Component\Odoo\DBAL\Schema\SchemaException``` is thrown if the model
 does not exist.
 
 Query builder
@@ -439,7 +439,7 @@ Then, build your query like below:
 $query = $queryBuilder->getQuery();
 ```
 
-Your query is an instance of ```Ang3\Component\Odoo\Query\OrmQuery```.
+Your query is an instance of ```Aesislabs\Component\Odoo\Query\OrmQuery```.
 
 ### Execute your query
 
@@ -534,8 +534,8 @@ For example, let's create the repository for your companies and define a query t
 ```php
 namespace App\Odoo\Repository;
 
-use Ang3\Component\Odoo\DBAL\RecordManager;
-use Ang3\Component\Odoo\DBAL\Repository\RecordRepository;
+use Aesislabs\Component\Odoo\DBAL\RecordManager;
+use Aesislabs\Component\Odoo\DBAL\Repository\RecordRepository;
 
 class CompanyRepository extends RecordRepository
 {
@@ -566,7 +566,7 @@ That's why you can retrieve your repository directly from the record manager:
 $companyRepository = $recordManager->getRepository('res.company');
 ```
 
-If no repository exists for a model, the default repository ```Ang3\Component\Odoo\DBAL\Repository\RecordRepository``` 
+If no repository exists for a model, the default repository ```Aesislabs\Component\Odoo\DBAL\Repository\RecordRepository``` 
 is used. Last but not least, all repositories are stored into the related record manager to avoid creating multiple 
 instances of same repository.
 
@@ -589,7 +589,7 @@ $expr = $clientOrRecordManager->expr();
 You can still use the expression builder as standalone by creating a new instance:
 
 ```php
-use Ang3\Component\Odoo\DBAL\Expression\ExpressionBuilder;
+use Aesislabs\Component\Odoo\DBAL\Expression\ExpressionBuilder;
 
 $expr = new ExpressionBuilder();
 ```
@@ -604,7 +604,7 @@ with a *polish notation* for logical operations (```AND```, ```OR``` and ```NOT`
 It could be quickly ugly to do a complex domain, but don't worry the builder makes all
 for you. :-)
 
-Each domain builder method creates an instance of ```Ang3\Component\Odoo\Expression\DomainInterface```.
+Each domain builder method creates an instance of ```Aesislabs\Component\Odoo\Expression\DomainInterface```.
 The only one method of this interface is ```toArray()``` to get a normalized array of the expression.
 
 To illustrate how to work with it, here is an example using ```ExpressionBuilder``` helper methods:
@@ -745,7 +745,7 @@ Please read the [ORM documentation](https://www.odoo.com/documentation/13.0/refe
 to known what we are talking about.
 
 The expression builder provides helper methods to build a well-formed *operation command*:
-each operation method returns an instance of ```Ang3\Component\Odoo\DBAL\Expression\CollectionOperation```.
+each operation method returns an instance of ```Aesislabs\Component\Odoo\DBAL\Expression\CollectionOperation```.
 Like domains, the only one method of this interface is ```toArray()``` to get a normalized array of the expression.
 
 To illustrate how to work with operations, here is an example using ```ExpressionBuilder``` helper methods:

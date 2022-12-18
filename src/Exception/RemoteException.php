@@ -1,8 +1,8 @@
 <?php
 
-namespace Ang3\Component\Odoo\Exception;
+namespace Aesislabs\Component\Odoo\Exception;
 
-use Ang3\Component\XmlRpc\Exception\RemoteException as XmlRemoteException;
+use Aesislabs\Component\XmlRpc\Exception\RemoteException as XmlRemoteException;
 
 class RemoteException extends RequestException
 {

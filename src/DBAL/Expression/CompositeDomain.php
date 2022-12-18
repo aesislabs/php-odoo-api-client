@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Expression;
+namespace Aesislabs\Component\Odoo\DBAL\Expression;
 
 use Generator;
 

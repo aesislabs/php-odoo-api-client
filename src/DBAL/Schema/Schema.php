@@ -1,9 +1,9 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Schema;
+namespace Aesislabs\Component\Odoo\DBAL\Schema;
 
-use Ang3\Component\Odoo\Client;
-use Ang3\Component\Odoo\DBAL\Query\OrmQuery;
+use Aesislabs\Component\Odoo\Client;
+use Aesislabs\Component\Odoo\DBAL\Query\OrmQuery;
 
 class Schema
 {

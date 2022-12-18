@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Repository;
+namespace Aesislabs\Component\Odoo\DBAL\Repository;
 
 class RecordNotFoundException extends \RuntimeException
 {

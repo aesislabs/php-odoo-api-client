@@ -1,11 +1,11 @@
 <?php
 
-namespace Ang3\Component\Odoo;
+namespace Aesislabs\Component\Odoo;
 
-use Ang3\Component\Odoo\Exception\RemoteException;
-use Ang3\Component\Odoo\Exception\RequestException;
-use Ang3\Component\XmlRpc\Client as XmlRpcClient;
-use Ang3\Component\XmlRpc\Exception\RemoteException as XmlRpcRemoteException;
+use Aesislabs\Component\Odoo\Exception\RemoteException;
+use Aesislabs\Component\Odoo\Exception\RequestException;
+use Laminas\XmlRpc\Client as XmlRpcClient;
+use Aesislabs\Component\XmlRpc\Exception\RemoteException as XmlRpcRemoteException;
 use Throwable;
 
 class Endpoint

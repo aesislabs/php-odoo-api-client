@@ -12,15 +12,15 @@ CHANGELOG
 * Added objects and iterable support for the expression builder.
 * Added record manager schema to get model names and metadata.
 * Fixed method ```count()```and added method ```countAll()``` 
-  ([Issue 8](#https://github.com/Ang3/php-odoo-api-client/issues/8)).
+  ([Issue 8](#https://github.com/Aesislabs/php-odoo-api-client/issues/8)).
 
 6.1
 ===
 
 - Replaced package [darkaonline/ripcord](https://packagist.org/packages/DarkaOnLine/Ripcord) by
-  [ang3/php-xmlrpc-client](https://packagist.org/packages/ang3/php-xmlrpc-client).
-- Implemented interface ```Ang3\Component\Odoo\Exception\ExceptionInterface``` for all client exceptions.
-- Fixed methods ```read()``` for integers or arrays ([Issue 6](https://github.com/Ang3/php-odoo-api-client/issues/6)).
+  [aesislabs/php-xmlrpc-client](https://packagist.org/packages/aesislabs/php-xmlrpc-client).
+- Implemented interface ```Aesislabs\Component\Odoo\Exception\ExceptionInterface``` for all client exceptions.
+- Fixed methods ```read()``` for integers or arrays ([Issue 6](https://github.com/Aesislabs/php-odoo-api-client/issues/6)).
 - Fixed methods when argument ```$criteria``` can be NULL
 - Fixed logging.
 - Deleted useless files and updated ```.gitignore```
@@ -28,7 +28,7 @@ CHANGELOG
 6.0
 ===
 
-- Removed dependency of package [ang3/php-dev-binaries](https://packagist.org/packages/ang3/php-dev-binaries).
+- Removed dependency of package [aesislabs/php-dev-binaries](https://packagist.org/packages/aesislabs/php-dev-binaries).
 - Added methods ```searchOne``` and ```searchAll```.
 - Back to package [darkaonline/ripcord](https://packagist.org/packages/DarkaOnLine/Ripcord).
 - Removed XML-RPC client.

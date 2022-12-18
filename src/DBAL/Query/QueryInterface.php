@@ -1,6 +1,6 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Query;
+namespace Aesislabs\Component\Odoo\DBAL\Query;
 
 interface QueryInterface
 {

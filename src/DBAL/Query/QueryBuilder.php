@@ -1,11 +1,11 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Query;
+namespace Aesislabs\Component\Odoo\DBAL\Query;
 
-use Ang3\Component\Odoo\DBAL\Expression\ConversionException;
-use Ang3\Component\Odoo\DBAL\Expression\DomainInterface;
-use Ang3\Component\Odoo\DBAL\Expression\ExpressionBuilder;
-use Ang3\Component\Odoo\DBAL\RecordManager;
+use Aesislabs\Component\Odoo\DBAL\Expression\ConversionException;
+use Aesislabs\Component\Odoo\DBAL\Expression\DomainInterface;
+use Aesislabs\Component\Odoo\DBAL\Expression\ExpressionBuilder;
+use Aesislabs\Component\Odoo\DBAL\RecordManager;
 use InvalidArgumentException;
 
 class QueryBuilder

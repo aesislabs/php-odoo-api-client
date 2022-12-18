@@ -1,10 +1,10 @@
 <?php
 
-namespace Ang3\Component\Odoo\Tests\Expression;
+namespace Aesislabs\Component\Odoo\Tests\Expression;
 
-use Ang3\Component\Odoo\DBAL\Expression\Comparison;
-use Ang3\Component\Odoo\Expression\CompositeDomain;
-use Ang3\Component\Odoo\Tests\AbstractTest;
+use Aesislabs\Component\Odoo\DBAL\Expression\Comparison;
+use Aesislabs\Component\Odoo\Expression\CompositeDomain;
+use Aesislabs\Component\Odoo\Tests\AbstractTest;
 
 /**
  * @abstract

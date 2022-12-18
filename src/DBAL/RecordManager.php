@@ -1,17 +1,17 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL;
+namespace Aesislabs\Component\Odoo\DBAL;
 
-use Ang3\Component\Odoo\Client;
-use Ang3\Component\Odoo\DBAL\Expression\DomainInterface;
-use Ang3\Component\Odoo\DBAL\Expression\ExpressionBuilderAwareTrait;
-use Ang3\Component\Odoo\DBAL\Query\NativeQuery;
-use Ang3\Component\Odoo\DBAL\Query\OrmQuery;
-use Ang3\Component\Odoo\DBAL\Query\QueryBuilder;
-use Ang3\Component\Odoo\DBAL\Query\QueryInterface;
-use Ang3\Component\Odoo\DBAL\Repository\RecordNotFoundException;
-use Ang3\Component\Odoo\DBAL\Repository\RecordRepository;
-use Ang3\Component\Odoo\DBAL\Schema\Schema;
+use Aesislabs\Component\Odoo\Client;
+use Aesislabs\Component\Odoo\DBAL\Expression\DomainInterface;
+use Aesislabs\Component\Odoo\DBAL\Expression\ExpressionBuilderAwareTrait;
+use Aesislabs\Component\Odoo\DBAL\Query\NativeQuery;
+use Aesislabs\Component\Odoo\DBAL\Query\OrmQuery;
+use Aesislabs\Component\Odoo\DBAL\Query\QueryBuilder;
+use Aesislabs\Component\Odoo\DBAL\Query\QueryInterface;
+use Aesislabs\Component\Odoo\DBAL\Repository\RecordNotFoundException;
+use Aesislabs\Component\Odoo\DBAL\Repository\RecordRepository;
+use Aesislabs\Component\Odoo\DBAL\Schema\Schema;
 
 class RecordManager
 {

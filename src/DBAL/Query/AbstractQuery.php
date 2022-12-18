@@ -1,8 +1,8 @@
 <?php
 
-namespace Ang3\Component\Odoo\DBAL\Query;
+namespace Aesislabs\Component\Odoo\DBAL\Query;
 
-use Ang3\Component\Odoo\DBAL\RecordManager;
+use Aesislabs\Component\Odoo\DBAL\RecordManager;
 
 abstract class AbstractQuery implements QueryInterface
 {
