@@ -24,6 +24,7 @@ class Endpoint
     {
         $this->url = $url;
         $this->client = new XmlRpcClient($url);
+        $this->client->getHttpClient()->setOptions(['timeout' => 60]);
     }
 
     /**
