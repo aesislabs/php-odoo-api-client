@@ -15,6 +15,8 @@ class Client
 {
     use ExpressionBuilderAwareTrait;
 
+    public float $rateLimit = 0;
+
     /**
      * Endpoints.
      */
@@ -87,7 +89,7 @@ class Client
      */
     private $uid;
 
-    public function __construct(string $url, string $database, string $username, string $password, LoggerInterface $logger = null)
+    public function __construct(string $url, string $database, string $username, string $password, float $rateLimit = 0, LoggerInterface $logger = null)
     {
         $this->url = $url;
         $this->database = $database;
@@ -95,6 +97,7 @@ class Client
         $this->password = $password;
         $this->recordManager = new RecordManager($this);
         $this->logger = $logger;
+        $this->rateLimit = $rateLimit;
         $this->initEndpoints();
     }
 
@@ -122,17 +125,18 @@ class Client
         $database = $getParam($config, 'database', 1);
         $username = $getParam($config, 'username', 2);
         $password = $getParam($config, 'password', 3);
+        $rateLimit = $getParam($config, 'rate_limit', 4);
 
-        return new self($url, $database, $username, $password, $logger);
+        return new self($url, $database, $username, $password, (float) $rateLimit, $logger);
     }
 
     /**
      * Create a new record.
      *
-     * @throws InvalidArgumentException when $data is empty
+     * @return int the ID of the new record
      * @throws RequestException         when request failed
      *
-     * @return int the ID of the new record
+     * @throws InvalidArgumentException when $data is empty
      */
     public function create(string $modelName, array $data): int
     {
@@ -203,10 +207,10 @@ class Client
     /**
      * Search all ID of record(s) with options.
      *
-     * @throws InvalidArgumentException when $criteria value is not valid
+     * @return array<int>
      * @throws RequestException         when request failed
      *
-     * @return array<int>
+     * @throws InvalidArgumentException when $criteria value is not valid
      */
     public function searchAll(string $modelName, array $options = []): array
     {
@@ -218,10 +222,10 @@ class Client
     /**
      * Find ID of record(s) by criteria and options.
      *
-     * @throws InvalidArgumentException when $criteria value is not valid
+     * @return array<int>
      * @throws RequestException         when request failed
      *
-     * @return array<int>
+     * @throws InvalidArgumentException when $criteria value is not valid
      */
     public function search(string $modelName, iterable $criteria = null, array $options = []): array
     {
@@ -260,9 +264,9 @@ class Client
     /**
      * Find all record(s) with options.
      *
+     * @return array<int, array>
      * @throws RequestException when request failed
      *
-     * @return array<int, array>
      */
     public function findAll(string $modelName, array $options = []): array
     {
@@ -272,10 +276,10 @@ class Client
     /**
      * Find record(s) by criteria and options.
      *
-     * @throws InvalidArgumentException when $criteria value is not valid
+     * @return array<int, array>
      * @throws RequestException         when request failed
      *
-     * @return array<int, array>
+     * @throws InvalidArgumentException when $criteria value is not valid
      */
     public function findBy(string $modelName, iterable $criteria = null, array $options = []): array
     {
@@ -290,8 +294,8 @@ class Client
     public function exists(string $modelName, int $id): bool
     {
         return 1 === $this->count($modelName, [
-            'id' => $id,
-        ]);
+                'id' => $id,
+            ]);
     }
 
     /**
@@ -341,6 +345,10 @@ class Client
 
         if ($this->logger) {
             $this->logger->debug('Calling method {name}::{method}', $loggerContext);
+        }
+
+        if ($this->rateLimit > 0) {
+            sleep($this->rateLimit);
         }
 
         $result = $this->objectEndpoint->call('execute_kw', [
@@ -478,7 +486,7 @@ class Client
      */
     private function initEndpoints(): void
     {
-        $this->commonEndpoint = new Endpoint($this->url.'/'.self::ENDPOINT_COMMON);
-        $this->objectEndpoint = new Endpoint($this->url.'/'.self::ENDPOINT_OBJECT);
+        $this->commonEndpoint = new Endpoint($this->url . '/' . self::ENDPOINT_COMMON);
+        $this->objectEndpoint = new Endpoint($this->url . '/' . self::ENDPOINT_OBJECT);
     }
 }

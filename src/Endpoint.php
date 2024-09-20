@@ -28,11 +28,11 @@ class Endpoint
     }
 
     /**
+     * @return mixed
      * @throws RequestException when request failed
      *
-     * @return mixed
      */
-    public function call(string $method, array $args = [])
+    public function call(string $method, array $args = [], int $retry = 0)
     {
         try {
             return $this->client->call($method, $args);
@@ -43,6 +43,12 @@ class Endpoint
 
             throw RemoteException::create($exception);
         } catch (Throwable $exception) {
+            if ($exception->getCode() === 429 && $retry < 10) {
+                sleep(10);
+                return $this->call($method, $args, $retry + 1);
+            } elseif ($exception->getCode() === 429) {
+                throw new RequestException('Too many request and too many retry', $exception->getCode(), $exception);
+            }
             throw new RequestException($exception->getMessage(), $exception->getCode(), $exception);
         }
     }
