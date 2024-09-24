@@ -348,7 +348,7 @@ class Client
         }
 
         if ($this->rateLimit > 0) {
-            sleep($this->rateLimit);
+            usleep($this->rateLimit * 1000);
         }
 
         $result = $this->objectEndpoint->call('execute_kw', [
