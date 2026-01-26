@@ -89,6 +89,11 @@ class Client
      */
     private $uid;
 
+    /**
+     * Default context passed to all RPC calls (e.g. ['lang' => 'fr_CH']).
+     */
+    private array $context = [];
+
     public function __construct(string $url, string $database, string $username, string $password, float $rateLimit = 0, LoggerInterface $logger = null)
     {
         $this->url = $url;
@@ -330,11 +335,27 @@ class Client
         return (array) $this->call($modelName, self::LIST_FIELDS, [], $options);
     }
 
+    public function setContext(array $context): self
+    {
+        $this->context = $context;
+
+        return $this;
+    }
+
+    public function getContext(): array
+    {
+        return $this->context;
+    }
+
     /**
      * @return mixed
      */
     public function call(string $name, string $method, array $parameters = [], array $options = [])
     {
+        if ($this->context) {
+            $options['context'] = array_merge($this->context, $options['context'] ?? []);
+        }
+
         $loggerContext = [
             'request_id' => uniqid('rpc', true),
             'name' => $name,
